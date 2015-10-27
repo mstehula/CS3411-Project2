@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <errno.h>
@@ -47,13 +48,15 @@ int main(int argc, char * argv[])
         printf("These are the arguments for arg %d, %s, and %s\n", i, argv[i], arg0);        
         
         if(fork() == 0) {
+            printf("I AM EXECUTING!\n");
             execve("sort", arg1, NULL);
-            free(arg1); 
+            free(arg1);
+            exit(0); 
         }
-
-                 
+        wait(NULL);
+        free(arg1);
     }
 
-
+    printf("return!\n");    
     return(0);
 }
