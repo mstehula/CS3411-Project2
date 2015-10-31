@@ -3,7 +3,7 @@
 # author Mitchell Stehula
 
 CC= cc
-CFLAGS= -c -g
+CFLAGS= -c -g -Wall
 LFLAGS=
 FILES=asort 
 OBJECTS= $(addsuffix .o, $(FILES))
